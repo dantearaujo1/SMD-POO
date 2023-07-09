@@ -1,30 +1,29 @@
-package tamagochi.states;
+package AppPackage.states;
 
-import tamagochi.Tamagochi;
-import tamagochi.Food;
+import AppPackage.Tamagotchi;
 
-public class DeadState implements TamagochiState {
+public class DeadState implements TamagotchiState {
 
 	@Override
-	public void sleep(Tamagochi t) {
+	public void sleep(Tamagotchi t) {
 		System.out.print(t.getName() + "Está morto!");
 		
 	}
 
 	@Override
-	public void play(Tamagochi t) {
+	public void play(Tamagotchi t) {
 		System.out.print(t.getName() + "Está morto!");
 		
 	}
 
 	@Override
-	public void feed(Tamagochi t, Food f) {
+	public void feed(Tamagotchi t, String f) {
 		System.out.print(t.getName() + "Está morto!");
 		
 	}
 
 	@Override
-	public void clean(Tamagochi t) {
+	public void clean(Tamagotchi t) {
 		System.out.print(t.getName() + "Está morto!");
 		
 	}
