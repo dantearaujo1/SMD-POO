@@ -3,12 +3,15 @@ import java.util.ArrayList;
 
 public class Player {
     private String name;
-    protected Meter energy;
-    private TamagotchiFactory generator;
-    ArrayList<Tamagotchi> tamagotchis;
+    protected Meter energy = new Meter();
+    ArrayList<Tamagotchi> tamagotchis = new ArrayList<Tamagotchi>();
+
+    Player(String nome){
+        this.name = nome;
+    }
 
     void adoptTama(String type, String nome){
-        Tamagotchi temp = generator.create(type, nome);
+        Tamagotchi temp = TamagotchiFactory.create(type, nome);
         temp.owner = this.name;
         this.tamagotchis.add(temp);
     }

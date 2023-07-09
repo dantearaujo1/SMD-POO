@@ -3,7 +3,7 @@ package AppPackage;
 public class TamagotchiFactory {
     static int count = 0;
 
-    Tamagotchi create(String type, String name){
+    static Tamagotchi create(String type, String name){
         count++;
         if(type.equals("duck")){
             DuckTama quack = new DuckTama(name);

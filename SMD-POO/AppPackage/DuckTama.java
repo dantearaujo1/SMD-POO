@@ -2,8 +2,8 @@ package AppPackage;
 
 public class DuckTama extends Tamagotchi {
     DuckTama(String nome){
-        super.name = nome;
-        super.setFood("uva");
+        this.name = nome;
+        setFood("uva");
     }
 
     void characteristic(){
