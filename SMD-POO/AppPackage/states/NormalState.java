@@ -46,7 +46,7 @@ public class NormalState implements TamagotchiState {
 			hunger.ModPercentage(-1.0f);
 			poop.ModPercentage(1.0f);
 			happy.ModPercentage(1.0f);
-			System.out.println(t.getName() + ": Ja tava na hora, vou comer um belo pratão de " + f);
+			System.out.println(t.getName() + ": Ja tava na hora, vou comer um pratim de " + f);
 		}
 	}
 
