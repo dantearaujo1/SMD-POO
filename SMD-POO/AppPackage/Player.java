@@ -14,6 +14,7 @@ public class Player {
         Tamagotchi temp = TamagotchiFactory.create(type, nome);
         temp.setOwner(this);
         this.tamagotchis.add(temp);
+        System.out.printf("Parabéns, você adotou um Mascote digital! Ele se chama %s.\n",nome);
     }
 
     public int findTama(String nome){
