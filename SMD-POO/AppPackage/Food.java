@@ -3,11 +3,11 @@ package AppPackage;
 public class Food {
     private String name;
 
-    String getName(){
+    public String getName(){
         return this.name;
     }
 
-    void setName(String nome){
+    public void setName(String nome){
         name = nome;
     }
 }

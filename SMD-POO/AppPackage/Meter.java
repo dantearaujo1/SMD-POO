@@ -9,7 +9,7 @@ public class Meter {
         this.bonusmod = 0.0f;
     }
 
-    void ModPercentage(float mod){
+    public void ModPercentage(float mod){
         this.percentage += (int)(((float)(10))*(mod + this.bonusmod));
         if(this.percentage > 100){
             this.percentage = 100;
@@ -19,11 +19,11 @@ public class Meter {
         }
     }
 
-    int getPercentage(){
+    public int getPercentage(){
         return this.percentage;
     }
 
-    void setBonusmod(float bonus){
+    public void setBonusmod(float bonus){
         this.bonusmod = bonus;
     }
 }

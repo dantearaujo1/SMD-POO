@@ -2,11 +2,11 @@ package AppPackage;
 
 public class ButterflyTama extends Tamagotchi {
     ButterflyTama(String nome){
-        this.name = nome;
+    	super(nome);
         setFood("fruta");
     }
 
-    void characteristic(){
+    public void characteristic(){
         System.out.println(", *flap*");
     }
 }

@@ -10,13 +10,28 @@ public class Player {
         this.name = nome;
     }
 
+    String getName(){
+        return this.name;
+    }
+
+    private boolean checkEnergy(int needed){
+        if(this.energy.getPercentage() - needed <= 0){
+            System.out.println("Voce tentou algo, mas caiu de exaustao...");
+            return false;
+        }
+        else if(this.energy.getPercentage() - needed <= 30){
+            System.out.println("Voce anda exausto mas...");
+        }
+        return true;
+    }
+
     void adoptTama(String type, String nome){
         Tamagotchi temp = TamagotchiFactory.create(type, nome);
-        temp.owner = this.name;
+        temp.setOwner(this);
         this.tamagotchis.add(temp);
     }
 
-    private int findTama(String nome){
+    public int findTama(String nome){
         for(int i = 0; i < this.tamagotchis.size(); i++){
             if(this.tamagotchis.get(i).name.equals(nome)){
                 return i;
@@ -28,60 +43,86 @@ public class Player {
     void play(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
-            this.tamagotchis.get(indice).play();
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(25)){
+                this.tamagotchis.get(indice).play();
+                this.energy.ModPercentage(-2.5f);
+            }
         }
     }
 
     void playAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            this.tamagotchis.get(i).play();
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(25)){
+                this.tamagotchis.get(i).play();
+                this.energy.ModPercentage(-2.5f);
+            }
         }
     }
 
     void feed(String nome, String comida){
         int indice = findTama(nome);
         if(indice >= 0){
-            this.tamagotchis.get(indice).feed(comida);
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(5)){
+                this.tamagotchis.get(indice).feed(comida);
+                this.energy.ModPercentage(-0.5f);
+            }
         }
     }
 
     void feedAll(String comida){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            this.tamagotchis.get(i).feed(comida);
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(5)){
+                this.tamagotchis.get(i).feed(comida);
+                this.energy.ModPercentage(-0.5f);
+            }
         }
     }
 
     void clean(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
-            this.tamagotchis.get(indice).clean();
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(10)){
+                this.tamagotchis.get(indice).clean();
+                this.energy.ModPercentage(-1.0f);
+            }
         }
     }
 
     void cleanAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            this.tamagotchis.get(i).clean();
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(10)){
+                this.tamagotchis.get(i).clean();
+                this.energy.ModPercentage(-1.0f);
+            }
         }
     }
 
     void putToSleep(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
-            this.tamagotchis.get(indice).sleep();
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(5)){
+                this.tamagotchis.get(indice).sleep();
+                this.energy.ModPercentage(-0.5f);
+            }
         }
     }
 
     void putToSleepAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            this.tamagotchis.get(i).sleep();
-            this.energy.ModPercentage(-0.5f);
+            if(checkEnergy(5)){
+                this.tamagotchis.get(i).sleep();
+                this.energy.ModPercentage(-0.5f);
+            }
+        }
+    }
+
+    void reenergize(){
+        this.energy.ModPercentage(1.5f);
+    }
+
+    void deteriorateTama(){
+        for(int i = 0; i < this.tamagotchis.size(); i++){
+            this.tamagotchis.get(i).deteriorate();
         }
     }
 }

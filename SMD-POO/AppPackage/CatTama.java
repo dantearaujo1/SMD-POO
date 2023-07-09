@@ -2,11 +2,11 @@ package AppPackage;
 
 public class CatTama extends Tamagotchi {
     CatTama(String nome){
-        this.name = nome;
+    	super(nome);
         setFood("peixe");
     }
 
-    void characteristic(){
+    public void characteristic(){
         System.out.println(", Miau!");
     }
 }
