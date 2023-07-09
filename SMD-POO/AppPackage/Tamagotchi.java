@@ -25,6 +25,7 @@ public abstract class Tamagotchi {
         else{
             this.hunger.ModPercentage(1.0f);
             System.out.print("Tamagotchi: Pelo menos mata a fome...");
+            characteristic();
         }
     }
 
