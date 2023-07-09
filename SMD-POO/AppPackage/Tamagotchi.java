@@ -7,7 +7,7 @@ public abstract class Tamagotchi {
     private Meter happiness;
     private Meter hunger;
     private Meter poop;
-    private String owner;
+    protected String owner;
     private Food favouritefood;
     ArrayList<Acessory> things = new ArrayList<Acessory>();
     TamagotchiState state;
@@ -29,7 +29,7 @@ public abstract class Tamagotchi {
     }
 
     void sleep(){
-        this.health.ModPercentage(1.5f);
+        this.health.ModPercentage(2.0f);
         System.out.print("Tamagotchi: ZzZzZz...");
     }
 
