@@ -91,8 +91,8 @@ public abstract class Tamagotchi {
 	  this.name =  name;
 	}
 
-	public void setOwner(Player owner) {
-		this.owner = owner;
+	public void setOwner(Player ownerplayer) {
+		this.owner = ownerplayer;
 	}
     protected void setFood(String comida){
         this.favoriteFood.setName(comida);
@@ -104,6 +104,13 @@ public abstract class Tamagotchi {
         this.hunger.setBonusmod(a.getHungerMod());
         this.poop.setBonusmod(a.getPoopMod());
         this.happiness.setBonusmod(a.getHappinessMod());
+    }
+
+    void deteriorate(){
+        this.health.ModPercentage(-0.5f);
+        this.hunger.ModPercentage(-1.5f);
+        this.poop.ModPercentage(-1.0f);
+        this.happiness.ModPercentage(-0.5f);
     }
 
 }
