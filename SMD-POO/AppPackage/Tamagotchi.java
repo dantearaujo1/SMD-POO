@@ -5,12 +5,12 @@ import AppPackage.states.NormalState;
 import AppPackage.states.TamagotchiState;
 
 public abstract class Tamagotchi {
-    String name;
-    private Meter health = new Meter();
-    private Meter happiness = new Meter();
-    private Meter hunger = new Meter();
-    private Meter poop = new Meter();
-    private Meter tiredness = new Meter();
+    private String name;
+    protected Meter health = new Meter();
+    protected Meter happiness = new Meter();
+    protected Meter hunger = new Meter();
+    protected Meter poop = new Meter();
+    protected Meter tiredness = new Meter();
     private Player owner;
     private Food favoriteFood = new Food();
     public ArrayList<Acessory> things = new ArrayList<Acessory>();
@@ -32,6 +32,7 @@ public abstract class Tamagotchi {
 
     public void sleep(){
       this.state.sleep(this);
+      characteristic();
     }
 
     public void clean(){
@@ -66,19 +67,20 @@ public abstract class Tamagotchi {
     public Player getOwner(){
         return this.owner;
     }
-	public String getName() {
-		return this.name;
-	}
-	public Food getFavoriteFood() {
-		return this.favoriteFood;
-	}
-    public void setName(String name) {
-	  this.name =  name;
-	}
 
-	public void setOwner(Player ownerplayer) {
-		this.owner = ownerplayer;
-	}
+    public String getName() {
+      return this.name;
+    }
+    public Food getFavoriteFood() {
+      return this.favoriteFood;
+    }
+      public void setName(String name) {
+      this.name =  name;
+    }
+
+    public void setOwner(Player ownerplayer) {
+      this.owner = ownerplayer;
+    }
     protected void setFood(String comida){
         this.favoriteFood.setName(comida);
     }
@@ -91,11 +93,11 @@ public abstract class Tamagotchi {
         this.happiness.setBonusmod(a.getHappinessMod());
     }
 
-    void deteriorate(){
-        this.health.ModPercentage(-0.5f);
-        this.hunger.ModPercentage(-1.5f);
-        this.poop.ModPercentage(-1.0f);
-        this.happiness.ModPercentage(-0.5f);
-    }
+    // void deteriorate(){
+    //     this.health.ModPercentage(-0.5f);
+    //     this.hunger.ModPercentage(-1.5f);
+    //     this.poop.ModPercentage(-1.0f);
+    //     this.happiness.ModPercentage(-0.5f);
+    // }
 
 }
