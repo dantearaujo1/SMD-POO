@@ -16,11 +16,11 @@ public class Player {
 
     private boolean checkEnergy(int needed){
         if(this.energy.getPercentage() - needed <= 0){
-            System.out.println("Voce tentou algo, mas caiu de exaustao...");
+            System.out.println("Você tentou algo, mas caiu de exaustao...");
             return false;
         }
         else if(this.energy.getPercentage() - needed <= 30){
-            System.out.println("Voce anda exausto mas...");
+            System.out.println("Você anda exausto mas...");
         }
         return true;
     }
@@ -33,7 +33,7 @@ public class Player {
 
     public int findTama(String nome){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            if(this.tamagotchis.get(i).name.equals(nome)){
+            if(this.tamagotchis.get(i).getName().equals(nome)){
                 return i;
             }
         }
@@ -122,7 +122,7 @@ public class Player {
 
     void deteriorateTama(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            this.tamagotchis.get(i).deteriorate();
+            // this.tamagotchis.get(i).deteriorate();
         }
     }
 }
