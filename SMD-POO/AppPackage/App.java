@@ -79,7 +79,7 @@ public class App{
                 return;
             }
             player.reenergize();
-            player.deteriorateTama();
+            // player.deteriorateTama();
         }
     }
 }
