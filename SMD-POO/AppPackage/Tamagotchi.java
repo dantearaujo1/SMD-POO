@@ -10,56 +10,38 @@ public abstract class Tamagotchi {
     private Meter happiness = new Meter();
     private Meter hunger = new Meter();
     private Meter poop = new Meter();
+    private Meter tiredness = new Meter();
     private Player owner;
     private Food favoriteFood = new Food();
-    ArrayList<Acessory> things = new ArrayList<Acessory>();
-    TamagotchiState state; 
+    public ArrayList<Acessory> things = new ArrayList<Acessory>();
+    public TamagotchiState state;
 
     public void characteristic(){
-        
+
     }
-    
+
     public Tamagotchi(String name) {
     	this.name = name;
-    	this.state = new NormalState(); 
+    	this.state = new NormalState();
     }
 
     public void feed(String food){
     	this.state.feed(this,food);
-//        if(food.equals(this.favoriteFood.getName())){
-//            this.hunger.ModPercentage(2.5f);
-//            System.out.print(name + ": ");
-//            System.out.print("Muito gostoso!");
-//            characteristic();
-//        }
-//        else{
-//            this.hunger.ModPercentage(1.0f);
-//            System.out.print(name + ": ");
-//            System.out.print("Pelo menos mata a fome...");
-//            characteristic();
-//        }
+      characteristic();
     }
 
     public void sleep(){
-    	this.state.sleep(this);
-//        this.health.ModPercentage(1.5f);
-//        System.out.print("Tamagotchi: ZzZzZz...");
+      this.state.sleep(this);
     }
 
     public void clean(){
     	this.state.clean(this);
-//        this.poop.ModPercentage(5.0f);
-//        System.out.print(name + ": ");
-//        System.out.print("Me sinto muito mais limpo!");
-//        characteristic();
+      characteristic();
     }
 
     public void play(){
     	this.state.play(this);
-//        this.happiness.ModPercentage(1.5f);
-//        System.out.print(name + ": ");
-//        System.out.print("*Sons de felicidade digital*");
-//        characteristic();
+      characteristic();
     }
 
     public Meter getHealthMeter(){
@@ -77,15 +59,18 @@ public abstract class Tamagotchi {
     public Meter getPoopMeter(){
         return this.poop;
     }
+    public Meter getTirednessMeter(){
+        return this.tiredness;
+    }
 
     public Player getOwner(){
         return this.owner;
-    }	
+    }
 	public String getName() {
-		return this.name; 
+		return this.name;
 	}
 	public Food getFavoriteFood() {
-		return this.favoriteFood; 
+		return this.favoriteFood;
 	}
     public void setName(String name) {
 	  this.name =  name;
