@@ -4,11 +4,11 @@ public class CatTama extends Tamagotchi {
     CatTama(String nome){
     	super(nome);
       setFood("peixe");
-      this.health = new Meter(100,-10);
-      this.happiness = new Meter(80,-5);
+      this.health = new Meter(100,-1);
+      this.happiness = new Meter(80,-0.5f);
       this.hunger = new Meter(0,0);
-      this.tiredness = new Meter(0,8);
-      this.poop = new Meter(0,-5);
+      this.tiredness = new Meter(0,0.8f);
+      this.poop = new Meter(0,-0.5f);
     }
 
     public void characteristic(){

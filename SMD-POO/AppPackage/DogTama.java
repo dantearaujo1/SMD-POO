@@ -14,7 +14,7 @@ public class DogTama extends Tamagotchi {
     }
 
     public void characteristic(){
-        System.out.println(this.getName() + " diz: Au!");
+        System.out.println(this.getName() + " : Au Au!");
         this.state.showState((Tamagotchi) this);
     }
 }

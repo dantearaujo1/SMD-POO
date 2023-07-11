@@ -4,11 +4,11 @@ public class ButterflyTama extends Tamagotchi {
     ButterflyTama(String nome){
     	super(nome);
       setFood("fruta");
-      this.health = new Meter(70,-5);
+      this.health = new Meter(70,-0.5f);
       this.happiness = new Meter(80,0);
-      this.hunger = new Meter(0,-5);
-      this.tiredness = new Meter(0,-2);
-      this.poop = new Meter(0,-10);
+      this.hunger = new Meter(0,-0.5f);
+      this.tiredness = new Meter(0,-0.2f);
+      this.poop = new Meter(0,-0.1f);
     }
 
     public void characteristic(){

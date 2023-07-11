@@ -4,11 +4,11 @@ public class DuckTama extends Tamagotchi {
     DuckTama(String nome){
     	super(nome);
       setFood("uva");
-      this.health = new Meter(100,-5);
+      this.health = new Meter(100,-0.5f);
       this.happiness = new Meter(90,0);
       this.hunger = new Meter(0,10);
-      this.tiredness = new Meter(0,-6);
-      this.poop = new Meter(0,-5);
+      this.tiredness = new Meter(0,-0.6f);
+      this.poop = new Meter(0,-0.5f);
     }
 
     public void characteristic(){
