@@ -82,13 +82,26 @@ public abstract class Tamagotchi {
     }
 
     void addAcessory(Acessory a){
-      things.put(a.getClass().getSimpleName(),a);
-      a.apply(this);
+      String name = a.getClass().getSimpleName();
+      if (!things.containsKey(name)){
+        things.put(name,a);
+        a.apply(this);
+        System.out.println("Adicionando: " + a.getClass().getSimpleName() );
+      }
+      else{
+        System.out.println(this.getName() + " ja tem esse acessório!");
+      }
     }
 
     void removeAcessory(Acessory a){
-      Acessory using = things.get(a.getClass().getSimpleName());
-      using.remove(this);
+      if (things.containsKey(name)){
+        Acessory using = things.get(a.getClass().getSimpleName());
+        using.remove(this);
+        System.out.println("Removendo: " + a.getClass().getSimpleName() );
+      }
+      else{
+        System.out.println(this.getName() + "não tem esse acessório ainda!");
+      }
     }
 
 }

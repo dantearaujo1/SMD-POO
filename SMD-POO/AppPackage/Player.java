@@ -113,6 +113,18 @@ public class Player {
             }
         }
     }
+    public void addAcessory(String nome, Acessory acc){
+        int indice = findTama(nome);
+        if(indice >= 0){
+            this.tamagotchis.get(indice).addAcessory(acc);
+        }
+    }
+    public void removeAcessory(String nome, Acessory acc){
+        int indice = findTama(nome);
+        if(indice >= 0){
+            this.tamagotchis.get(indice).removeAcessory(acc);
+        }
+    }
 
     public void putToSleepAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
