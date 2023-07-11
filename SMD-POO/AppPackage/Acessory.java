@@ -6,19 +6,7 @@ public abstract class Acessory {
     protected float poopmodifier = 0.0f;
     protected float hungermodifier = 0.0f;
 
-    float getHealthMod(){
-        return this.healthmodifier;
-    }
+    public abstract void apply(Tamagotchi t);
+    public abstract void remove(Tamagotchi t);
 
-    float getHappinessMod(){
-        return this.happinessmodifier;
-    }
-
-    float getPoopMod(){
-        return this.poopmodifier;
-    }
-
-    float getHungerMod(){
-        return this.hungermodifier;
-    }
 }
