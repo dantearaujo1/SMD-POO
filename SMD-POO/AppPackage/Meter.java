@@ -27,6 +27,9 @@ public class Meter {
     public int getPercentage(){
         return this.percentage;
     }
+    public float getBonus(){
+        return this.bonusmod;
+    }
 
     public void setBonusmod(float bonus){
         this.bonusmod = bonus;

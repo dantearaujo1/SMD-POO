@@ -25,7 +25,7 @@ public class Player {
         return true;
     }
 
-    void adoptTama(String type, String nome){
+    public void adoptTama(String type, String nome){
         Tamagotchi temp = TamagotchiFactory.create(type, nome);
         temp.setOwner(this);
         this.tamagotchis.add(temp);
@@ -41,7 +41,7 @@ public class Player {
         return -1;
     }
 
-    void play(String nome){
+    public void play(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
             if(checkEnergy(25)){
@@ -50,14 +50,14 @@ public class Player {
             }
         }
     }
-    void show(String nome){
+    public void show(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
           this.tamagotchis.get(indice).characteristic();
         }
     }
 
-    void playAll(){
+    public void playAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
             if(checkEnergy(25)){
                 this.tamagotchis.get(i).play();
@@ -66,7 +66,7 @@ public class Player {
         }
     }
 
-    void feed(String nome, String comida){
+    public void feed(String nome, String comida){
         int indice = findTama(nome);
         if(indice >= 0){
             if(checkEnergy(5)){
@@ -76,7 +76,7 @@ public class Player {
         }
     }
 
-    void feedAll(String comida){
+    public void feedAll(String comida){
         for(int i = 0; i < this.tamagotchis.size(); i++){
             if(checkEnergy(5)){
                 this.tamagotchis.get(i).feed(comida);
@@ -85,7 +85,7 @@ public class Player {
         }
     }
 
-    void clean(String nome){
+    public void clean(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
             if(checkEnergy(10)){
@@ -95,7 +95,7 @@ public class Player {
         }
     }
 
-    void cleanAll(){
+    public void cleanAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
             if(checkEnergy(10)){
                 this.tamagotchis.get(i).clean();
@@ -104,17 +104,29 @@ public class Player {
         }
     }
 
-    void putToSleep(String nome){
+    public void putToSleep(String nome){
         int indice = findTama(nome);
         if(indice >= 0){
             if(checkEnergy(5)){
-                this.tamagotchis.get(indice).sleep();
                 this.energy.ModPercentage(-0.5f);
+                this.tamagotchis.get(indice).sleep();
             }
         }
     }
+    public void addAcessory(String nome, Acessory acc){
+        int indice = findTama(nome);
+        if(indice >= 0){
+            this.tamagotchis.get(indice).addAcessory(acc);
+        }
+    }
+    public void removeAcessory(String nome, Acessory acc){
+        int indice = findTama(nome);
+        if(indice >= 0){
+            this.tamagotchis.get(indice).removeAcessory(acc);
+        }
+    }
 
-    void putToSleepAll(){
+    public void putToSleepAll(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
             if(checkEnergy(5)){
                 this.tamagotchis.get(i).sleep();
@@ -123,7 +135,7 @@ public class Player {
         }
     }
 
-    void reenergize(){
+    public void reenergize(){
       if(this.energy.getPercentage() <= 20){
         this.energy.ModPercentage(1.9f);
       }
