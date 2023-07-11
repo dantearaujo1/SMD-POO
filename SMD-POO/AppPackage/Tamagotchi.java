@@ -27,22 +27,22 @@ public abstract class Tamagotchi {
 
     public void feed(String food){
     	this.state.feed(this,food);
-      characteristic();
+      // characteristic();
     }
 
     public void sleep(){
       this.state.sleep(this);
-      characteristic();
+      // characteristic();
     }
 
     public void clean(){
     	this.state.clean(this);
-      characteristic();
+      // characteristic();
     }
 
     public void play(){
     	this.state.play(this);
-      characteristic();
+      // characteristic();
     }
 
     public Meter getHealthMeter(){

@@ -14,7 +14,6 @@ public class DeadState implements TamagotchiState {
 	@Override
 	public void sleep(Tamagotchi t) {
 		System.out.print(t.getName() + " está morto!");
-
 	}
 
 	@Override

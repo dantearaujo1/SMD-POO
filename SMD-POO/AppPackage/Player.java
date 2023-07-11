@@ -37,6 +37,7 @@ public class Player {
                 return i;
             }
         }
+        System.out.println("Você não tem um mascote chamado: " + nome);
         return -1;
     }
 
@@ -47,6 +48,12 @@ public class Player {
                 this.tamagotchis.get(indice).play();
                 this.energy.ModPercentage(-2.5f);
             }
+        }
+    }
+    void show(String nome){
+        int indice = findTama(nome);
+        if(indice >= 0){
+          this.tamagotchis.get(indice).characteristic();
         }
     }
 
@@ -117,12 +124,13 @@ public class Player {
     }
 
     void reenergize(){
-        this.energy.ModPercentage(1.5f);
+      if(this.energy.getPercentage() <= 20){
+        this.energy.ModPercentage(1.9f);
+      }
+      else if (this.energy.getPercentage() <= 50){
+        this.energy.ModPercentage(1.7f);
+      }
+      this.energy.ModPercentage(1.5f);
     }
 
-    void deteriorateTama(){
-        for(int i = 0; i < this.tamagotchis.size(); i++){
-            // this.tamagotchis.get(i).deteriorate();
-        }
-    }
 }
