@@ -2,7 +2,7 @@ package AppPackage;
 
 public class Toilet extends Acessory {
     Toilet(){
-        this.poopmodifier = 2.0f;
+        this.poopmodifier = -2.0f;
     }
 
     @Override
