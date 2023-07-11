@@ -108,8 +108,8 @@ public class Player {
         int indice = findTama(nome);
         if(indice >= 0){
             if(checkEnergy(5)){
-                this.tamagotchis.get(indice).sleep();
                 this.energy.ModPercentage(-0.5f);
+                this.tamagotchis.get(indice).sleep();
             }
         }
     }
