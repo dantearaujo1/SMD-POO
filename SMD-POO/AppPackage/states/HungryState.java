@@ -5,6 +5,10 @@ import AppPackage.Meter;
 
 public class HungryState implements TamagotchiState {
 
+  public HungryState(){
+    System.out.println("Seu mascote está com fome!");
+  }
+
 	public void sleep(Tamagotchi t) {
 		Meter happy = t.getHappinessMeter();
 		Meter health = t.getHealthMeter();
@@ -50,7 +54,7 @@ public class HungryState implements TamagotchiState {
 		poop.ModPercentage(1.0f);
 		System.out.println(t.getName() + ": Eu queria mesmo era uma comidinha!");
 	}
-	
-	
+
+
 
 }

@@ -3,13 +3,8 @@ package AppPackage.states;
 import AppPackage.Tamagotchi;
 import AppPackage.Meter;
 
-import SmellyState;
-import HungryState;
-import SickState;
+public class SickState implements TamagotchiState {
 
-public class NormalState implements TamagotchiState {
-
-	@Override
 	public void sleep(Tamagotchi t) {
 		Meter health = t.getHealthMeter();
 		Meter hunger = t.getHungerMeter();
@@ -22,16 +17,8 @@ public class NormalState implements TamagotchiState {
 
 	@Override
 	public void play(Tamagotchi t) {
-		Meter hunger = t.getHungerMeter();
-		Meter poop = t.getPoopMeter();
-		Meter happy = t.getHappinessMeter();
-		hunger.ModPercentage(2.0f);
-		poop.ModPercentage(1.0f);
-		happy.ModPercentage(1.0f);
+		System.out.println(t.getName() + " está doente, não vai poder brincar");
 
-		System.out.println(t.getName() + " Brincou com todos os seus colegas!");
-
-    this.checkStatus(t);
 	}
 
 	@Override
@@ -69,38 +56,5 @@ public class NormalState implements TamagotchiState {
 		System.out.println(t.getName() + ": Lava, lava, lava .....");
 
 	}
-
-  public void checkStatus(Tamagotchi t){
-		Meter health = t.getHealthMeter();
-		Meter hunger = t.getHungerMeter();
-		Meter poop = t.getPoopMeter();
-		Meter tiredness = t.getTirednessMeter();
-
-    int hungerValue = hunger.getPercentage();
-    int poopValue = poop.getPercentage();
-    int healthValue = health.getPercentage();
-    int tirednessValue = tiredness.getPercentage();
-
-    if (healthValue <= 0){
-      t.state = (new DeadState());
-      return;
-    }
-    if (healthValue <= 20){
-      t.state = (new SickState());
-      return;
-    }
-
-    int max = Math.max(hungerValue,poopValue);
-    int max2 = Math.max(max,tirednessValue);
-    if (max2 == tirednessValue){
-      t.state = (new TiredState());
-    }
-    if (max2 == hungerValue){
-      t.state = (new HungryState());
-    }
-    else if (max2 == poopValue){
-      t.state = (new SmellyState());
-    }
-  }
 
 }
