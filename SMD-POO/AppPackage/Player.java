@@ -33,7 +33,7 @@ public class Player {
 
     public int findTama(String nome){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            if(this.tamagotchis.get(i).name.equals(nome)){
+            if(this.tamagotchis.get(i).getName().equals(nome)){
                 return i;
             }
         }
@@ -122,7 +122,7 @@ public class Player {
 
     void deteriorateTama(){
         for(int i = 0; i < this.tamagotchis.size(); i++){
-            this.tamagotchis.get(i).deteriorate();
+            // this.tamagotchis.get(i).deteriorate();
         }
     }
 }
