@@ -3,16 +3,18 @@ Super Mascotes Digitais - Pets Otimistas e Otimizados
 
 Um simulador simples de Tamagotchi no console.
 
-Repositório no github: [https://github.com/dantearaujo1/SMD-POO](
-Recursão? rsrs)
+Repositório no github: [Recursão? rsrs](
+https://github.com/dantearaujo1/SMD-POO)
 
 ## Equipe
 
 A equipe é composta por:
 
-Dante de Araújo Clementino - 509015
-Jaycee Loueny Felix Camara - 472360
-Mirailton Mota Costa Filho - 521325
+**Dante de Araújo Clementino** - 509015
+
+**Jaycee Loueny Felix Camara** - 472360
+
+**Mirailton Mota Costa Filho** - 521325
 
 ## Como usar
 
@@ -67,5 +69,13 @@ java -jar SMD-POO.jar
 do eclipse apenas recebe o stdout de um console então não é capaz de interpretar
 ANSI ESCAPE CODES a não ser que vc tenha algum plugin para isso**
 
-Abra um projeto no eclipse e aperte em Run ou CTRL+F11
+Abra um projeto no eclipse
+Abra a pasta SMD-POO
+Abra o pacote AppPackage
+Clique com o botão direito em App.java
+Coloque o mouse sobre Run As
+Selecione Java Application no menu lateral que aparecer.
+
+Após fazer isso uma vez, se quiser repetir, basta apertar CTRL+F11
+e aperte em Run ou CTRL+F11
 
