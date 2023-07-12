@@ -13,24 +13,23 @@ public class DeadState implements TamagotchiState {
   }
 	@Override
 	public void sleep(Tamagotchi t) {
-		System.out.print(t.getName() + " está morto!");
-
+		System.out.println(t.getName() + " está morto!");
 	}
 
 	@Override
 	public void play(Tamagotchi t) {
-		System.out.print(t.getName() + " está morto!");
+		System.out.println(t.getName() + " está morto!");
 
 	}
 
 	@Override
 	public void feed(Tamagotchi t, String f) {
-		System.out.print(t.getName() + " está morto!");
+		System.out.println(t.getName() + " está morto!");
 
 	}
 
 	@Override
 	public void clean(Tamagotchi t) {
-		System.out.print(t.getName() + " está morto!");
+		System.out.println(t.getName() + " está morto!");
 	}
 }

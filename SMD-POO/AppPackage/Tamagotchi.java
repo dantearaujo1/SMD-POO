@@ -1,5 +1,7 @@
 package AppPackage;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import AppPackage.states.NormalState;
 import AppPackage.states.TamagotchiState;
@@ -13,12 +15,10 @@ public abstract class Tamagotchi {
     protected Meter tiredness = new Meter();
     private Player owner;
     private Food favoriteFood = new Food();
-    public ArrayList<Acessory> things = new ArrayList<Acessory>();
+    public Map<String,Acessory> things = new HashMap<>();
     public TamagotchiState state;
 
-    public void characteristic(){
-
-    }
+    public abstract void characteristic();
 
     public Tamagotchi(String name) {
     	this.name = name;
@@ -27,22 +27,18 @@ public abstract class Tamagotchi {
 
     public void feed(String food){
     	this.state.feed(this,food);
-      characteristic();
     }
 
     public void sleep(){
       this.state.sleep(this);
-      characteristic();
     }
 
     public void clean(){
     	this.state.clean(this);
-      characteristic();
     }
 
     public void play(){
     	this.state.play(this);
-      characteristic();
     }
 
     public Meter getHealthMeter(){
@@ -74,7 +70,7 @@ public abstract class Tamagotchi {
     public Food getFavoriteFood() {
       return this.favoriteFood;
     }
-      public void setName(String name) {
+    public void setName(String name) {
       this.name =  name;
     }
 
@@ -86,18 +82,26 @@ public abstract class Tamagotchi {
     }
 
     void addAcessory(Acessory a){
-        this.things.add(a);
-        this.health.setBonusmod(a.getHealthMod());
-        this.hunger.setBonusmod(a.getHungerMod());
-        this.poop.setBonusmod(a.getPoopMod());
-        this.happiness.setBonusmod(a.getHappinessMod());
+      String name = a.getClass().getSimpleName();
+      if (!things.containsKey(name)){
+        things.put(name,a);
+        a.apply(this);
+        System.out.println("Adicionando: " + a.getClass().getSimpleName() );
+      }
+      else{
+        System.out.println(this.getName() + " ja tem esse acessório!");
+      }
     }
 
-    // void deteriorate(){
-    //     this.health.ModPercentage(-0.5f);
-    //     this.hunger.ModPercentage(-1.5f);
-    //     this.poop.ModPercentage(-1.0f);
-    //     this.happiness.ModPercentage(-0.5f);
-    // }
+    void removeAcessory(Acessory a){
+      if (things.containsKey(name)){
+        Acessory using = things.get(a.getClass().getSimpleName());
+        using.remove(this);
+        System.out.println("Removendo: " + a.getClass().getSimpleName() );
+      }
+      else{
+        System.out.println(this.getName() + "não tem esse acessório ainda!");
+      }
+    }
 
 }
