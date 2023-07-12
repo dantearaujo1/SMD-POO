@@ -5,15 +5,30 @@ import AppPackage.Meter;
 
 public class SmellyState implements TamagotchiState {
 
+  public SmellyState(){
+    System.out.println("Seu mascote está fedendo muito!");
+  }
 	public void sleep(Tamagotchi t) {
-		// TODO Auto-generated method stub
 
+		Meter health = t.getHealthMeter();
+		Meter poop = t.getPoopMeter();
+		Meter tiredness = t.getTirednessMeter();
+    tiredness.ModPercentage(-1.0f);
+		health.ModPercentage(-0.8f);
+    poop.ModPercentage(1.0f);
+		System.out.println(t.getName() + " vai ficar doente se continuar dormindo fedido!");
     this.checkStatus(t);
 	}
 
 	public void play(Tamagotchi t) {
-		// TODO Auto-generated method stub
 
+		Meter health = t.getHealthMeter();
+		Meter poop = t.getPoopMeter();
+		Meter tiredness = t.getTirednessMeter();
+    tiredness.ModPercentage(1.0f);
+		health.ModPercentage(-0.8f);
+    poop.ModPercentage(1.8f);
+		System.out.println(t.getName() + " fez os amigos sairem correndo do fedor depois de um tempo de brincadeira!");
     this.checkStatus(t);
 	}
 
@@ -96,8 +111,6 @@ public class SmellyState implements TamagotchiState {
       t.state = (new TiredState());
     }
     else if (max2 == poopValue && max2 >= 80){
-      // t.state = (new SmellyState());
-      // ((TiredState)t.state).checkStatus(t);
     }
 
   }

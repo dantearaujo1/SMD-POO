@@ -85,8 +85,6 @@ public class HungryState implements TamagotchiState {
     healthValue = health.getPercentage();
     tirednessValue = tiredness.getPercentage();
 
-    System.out.println(healthValue);
-    System.out.println(health.getPercentage());
     if (healthValue <= 1){
       t.state = (new DeadState(t));
       return;
