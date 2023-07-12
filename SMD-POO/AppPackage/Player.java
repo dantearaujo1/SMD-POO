@@ -145,4 +145,11 @@ public class Player {
       this.energy.ModPercentage(1.5f);
     }
 
+    public void deteriorateAll(){
+      for(int i = 0; i < this.tamagotchis.size(); i++){
+        Tamagotchi tama = this.tamagotchis.get(i);
+        tama.deteriorate();
+      }
+    }
+
 }

@@ -33,6 +33,7 @@ public class App{
                 comida = comida.toLowerCase();
                 System.out.println("Agora digite o nome do bichinho em que sera realizada a acao ou 'todos' caso seja em todos (gasta mais energia):");
                 nome = in.readLine();
+                System.out.print("\033[H\033[2J");
                 nome = nome.toLowerCase();
                 if(nome.equals("todos")){
                     player.feedAll(comida);
@@ -105,6 +106,7 @@ public class App{
                   }
                 }
                 Acessory aObj = null;
+                System.out.print("\033[H\033[2J");
                 System.out.println("Digite o nome do acessório\n-Privada\n-Bola\n-Cafeína\n-Biotônico");
                 String  acessorio = in.readLine();
                 if(acessorio.toLowerCase().equals("privada")){
@@ -136,6 +138,7 @@ public class App{
                 return;
             }
             player.reenergize();
+            player.deteriorateAll();
         }
     }
 }

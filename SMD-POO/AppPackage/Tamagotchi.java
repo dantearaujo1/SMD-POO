@@ -81,7 +81,7 @@ public abstract class Tamagotchi {
         this.favoriteFood.setName(comida);
     }
 
-    void addAcessory(Acessory a){
+    public void addAcessory(Acessory a){
       String name = a.getClass().getSimpleName();
       if (!things.containsKey(name)){
         things.put(name,a);
@@ -93,7 +93,7 @@ public abstract class Tamagotchi {
       }
     }
 
-    void removeAcessory(Acessory a){
+    public void removeAcessory(Acessory a){
       if (things.containsKey(name)){
         Acessory using = things.get(a.getClass().getSimpleName());
         using.remove(this);
@@ -102,6 +102,14 @@ public abstract class Tamagotchi {
       else{
         System.out.println(this.getName() + "não tem esse acessório ainda!");
       }
+    }
+
+    public void deteriorate(){
+        this.happiness.ModPercentage(-0.8f);
+        this.tiredness.ModPercentage(0.4f);
+        this.poop.ModPercentage(0.2f);
+        this.health.ModPercentage(-0.1f);
+        this.hunger.ModPercentage(0.3f);
     }
 
 }
